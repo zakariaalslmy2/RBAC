@@ -59,7 +59,7 @@ For detailed requirements and evaluation criteria, please check the file:
 ---
 ```
 🗂️ Project Structure
-ط'ط
+
 RBAC/
 
 ├── app/
@@ -111,6 +111,7 @@ RBAC/
 ├── phpunit.xml
 └──
 ...
+```
 
 🛠️ Setup and Installation
 To get started with this system, follow these installation steps:
