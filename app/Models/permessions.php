@@ -10,13 +10,13 @@ class permessions extends Model
 {
      public function user(): BelongsToMany{
 
-        return $this->BelongsToMany(related: User::class);
+        return $this->BelongsToMany( User::class);
 
     }
 
     public function roles(): BelongsToMany{
 
-        return $this->BelongsToMany(related: Role::class);
+        return $this->BelongsToMany( Role::class);
 
     }
 }
