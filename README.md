@@ -57,8 +57,11 @@ For detailed requirements and evaluation criteria, please check the file:
 | `/user/dashboard` | User dashboard | User Only |
 
 ---
+```
 🗂️ Project Structure
+ط'ط
 RBAC/
+
 ├── app/
 │   ├── Enums/
 │   ├── Http/
@@ -106,7 +109,8 @@ RBAC/
 ├── composer.json
 ├── package.json
 ├── phpunit.xml
-└── ...
+└──
+...
 
 🛠️ Setup and Installation
 To get started with this system, follow these installation steps:
