@@ -45,6 +45,16 @@
 | **GET** | `/profile` | `AuthenticationController@profile` | Get the authenticated user’s profile | Authenticated (Sanctum) |
 | **GET** | `/permissions` | `PermissionController@index` | List all permissions | Authenticated (Sanctum) |
 
+👤 مسارات المستخدمين (User Routes)
+
+| الطريقة       | المسار        | المتحكم                  | الوصف                 |
+| ------------- | ------------- | ------------------------ | --------------------- |
+| **GET**       | `/users`      | `UserController@index`   | عرض جميع المستخدمين   |
+| **POST**      | `/users`      | `UserController@store`   | إنشاء مستخدم جديد     |
+| **GET**       | `/users/{id}` | `UserController@show`    | عرض تفاصيل المستخدم   |
+| **PUT/PATCH** | `/users/{id}` | `UserController@update`  | تحديث بيانات المستخدم |
+| **DELETE**    | `/users/{id}` | `UserController@destroy` | حذف مستخدم            |
+
 ### 👤 User Routes
 | Method | Route | Controller | Description |
 |--------|--------|-------------|--------------|
@@ -54,6 +64,20 @@
 | **PUT/PATCH** | `/users/{id}` | `UserController@update` | Update user info |
 | **DELETE** | `/users/{id}` | `UserController@destroy` | Delete a user |
 
+
+🧑‍💼 مسارات الأدوار (Role Routes)
+
+
+
+| الطريقة       | المسار        | المتحكم                  | الوصف              |
+| ------------- | ------------- | ------------------------ | ------------------ |
+| **GET**       | `/roles`      | `RoleController@index`   | عرض جميع الأدوار   |
+| **POST**      | `/roles`      | `RoleController@store`   | إنشاء دور جديد     |
+| **GET**       | `/roles/{id}` | `RoleController@show`    | عرض تفاصيل الدور   |
+| **PUT/PATCH** | `/roles/{id}` | `RoleController@update`  | تحديث بيانات الدور |
+| **DELETE**    | `/roles/{id}` | `RoleController@destroy` | حذف دور            |
+
+
 ### 🧑‍💼 Role Routes
 | Method | Route | Controller | Description |
 |--------|--------|-------------|--------------|
@@ -62,6 +86,15 @@
 | **GET** | `/roles/{id}` | `RoleController@show` | Show role details |
 | **PUT/PATCH** | `/roles/{id}` | `RoleController@update` | Update role info |
 | **DELETE** | `/roles/{id}` | `RoleController@destroy` | Delete a role |
+
+
+ 🔒 مسارات مبنية على الأدوار (Role-Based Routes)  
+ | المسار             | الوصف              | الوصول       |
+| ------------------ | ------------------ | ------------ |
+| `/admin/dashboard` | لوحة تحكم المسؤول  | المسؤول فقط  |
+| `/user/dashboard`  | لوحة تحكم المستخدم | المستخدم فقط |
+
+
 
 ### 🔒 Role-Based Routes
 | Route | Description | Access |
@@ -126,31 +159,48 @@ RBAC/
 ...
 ```
 
-🛠️ Setup and Installation
-To get started with this system, follow these installation steps:
+الإعداد والتثبيت (Setup and Installation)
 
-1. Clone the repository:
-git clone https:
-2. Install dependencies:
+للبدء في استخدام النظام، اتبع الخطوات التالية:
+
+استنساخ المستودع (Clone):
+
+git clone https://github.com/Abdogoda/Laravel-Interview-Tasks/RBAC
+
+
+تثبيت التبعيات (Dependencies):
+
 cd RBAC
 composer install
-3. Set up the .env file:
-Make sure you have the correct environment variables set in your .env file, especially the database connection.
+
+
+إعداد ملف البيئة (.env):
+تأكد من ضبط متغيرات البيئة بشكل صحيح، خاصة إعدادات قاعدة البيانات.
 
 cp .env.example .env
 php artisan key:generate
-4. Migrate the database:
-Run the migration commands to set up the necessary tables for users, roles, and permissions.
+
+
+ترحيل الجداول إلى قاعدة البيانات (Migrations):
 
 php artisan migrate
-5. Seed the database (optional):
-You can seed the database with default roles and permissions.
+
+
+تعبئة قاعدة البيانات (اختياري - Seeders):
 
 php artisan db:seed
-6. Serve the application:
+
+
+تشغيل التطبيق:
+
 php artisan serve
-🔧 Development Tools
-Laravel 11+: PHP framework for building the application.
-Laravel Sanctum: Simple token-based authentication for APIs.
-SQLite: Lightweight database used for easy setup.
-Postman: For testing API endpoints.
+
+🔧 أدوات التطوير (Development Tools)
+
+Laravel 11+ — إطار عمل PHP الأساسي للتطبيق.
+
+Laravel Sanctum — نظام مصادقة بسيط قائم على الرموز (Tokens).
+
+SQLite — قاعدة بيانات خفيفة وسهلة الإعداد.
+
+Postman — أداة لاختبار واجهات برمجة التطبيقات (APIs).
