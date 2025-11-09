@@ -1,24 +1,27 @@
-# 🔐 Laravel RBAC (Role-Based Access Control) System
+🔐 نظام التحكم في الوصول المعتمد على الأدوار (RBAC) في Laravel
 
-Welcome to the **User Management and Role-Based Access Control (RBAC)** documentation!  
-This project demonstrates how to implement a complete RBAC system in a **Laravel** application — including authentication, role and permission management, middleware protection, and API testing.
-
----
-
-## 📋 Task Requirements
-
-For detailed requirements and evaluation criteria, please check the file:
-> [`TaskRequirements.md`](TaskRequirements.md)
+مرحبًا بك في توثيق نظام إدارة المستخدمين والتحكم في الوصول القائم على الأدوار (RBAC)!
+يُظهر هذا المشروع كيفية تنفيذ نظام RBAC متكامل في تطبيق Laravel — بما في ذلك نظام المصادقة، وإدارة الأدوار والصلاحيات، وحماية المسارات عبر الوسائط (Middleware)، واختبار واجهات الـ API.
 
 
-## 🧩 Features
 
-- **User Authentication** — Login, registration, and password reset functionality.  
-- **Role Management** — Create, update, and assign roles to users.  
-- **Permissions** — Fine-grained access control based on user roles.  
-- **Middleware Protection** — Restrict access to routes by roles and permissions.  
-- **RESTful API Endpoints** — Manage users, roles, and permissions through APIs.  
-- **Automated Tests** — Ensure functionality (e.g., that only admins can create roles).
+
+
+ت
+
+مصادقة المستخدمين — تسجيل الدخول، التسجيل، وإعادة تعيين كلمة المرور.
+
+إدارة الأدوار — إنشاء الأدوار وتحديثها وتعيينها للمستخدمين.
+
+إدارة الصلاحيات — تحكم دقيق في الوصول استنادًا إلى أدوار المستخدمين.
+
+حماية المسارات بالوسائط (Middleware) — تقييد الوصول إلى المسارات حسب الأدوار والصلاحيات.
+
+نقاط نهاية RESTful API — إدارة المستخدمين والأدوار والصلاحيات عبر واجهات برمجية.
+
+اختبارات آلية — التحقق من الوظائف (مثل التأكد من أن المسؤول فقط يمكنه إنشاء الأدوار).
+
+
 
 ---
 
@@ -117,7 +120,7 @@ RBAC/
 To get started with this system, follow these installation steps:
 
 1. Clone the repository:
-git clone https://github.com/Abdogoda/Laravel-Interview-Tasks/RBAC
+git clone https:
 2. Install dependencies:
 cd RBAC
 composer install
