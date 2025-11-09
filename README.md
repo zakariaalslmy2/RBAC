@@ -57,7 +57,82 @@ For detailed requirements and evaluation criteria, please check the file:
 | `/user/dashboard` | User dashboard | User Only |
 
 ---
+🗂️ Project Structure
+RBAC/
+├── app/
+│   ├── Enums/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Api/V1/
+│   │   │   │   ├── UserController.php
+│   │   │   │   ├── AuthenticationController.php
+│   │   │   │   ├── PermissionController.php
+│   │   │   │   └── RoleController.php
+│   │   ├── Middleware/
+│   │   │   ├── HasAnyPermissionMiddleware.php
+│   │   │   └── ...
+│   ├── Models/
+│   │   ├── User.php
+│   │   ├── Role.php
+│   │   ├── Permission.php
+│   ├── Providers/
+│   └── ...
+├── database/
+│   ├── migrations/
+│   │   ├── 0001_01_01_000000_create_users_table.php
+│   │   ├── 2025_08_10_210607_create_roles_table.php
+│   │   ├── 2025_08_10_210613_create_permissions_table.php
+│   │   ├── 2025_08_10_210732_create_role_user_table.php
+│   │   ├── 2025_08_10_210750_create_permission_role_table.php
+│   │   └── 2025_08_10_210800_create_permission_user_table.php
+│   ├── seeders/
+│   │   ├── DatabaseSeeder.php
+│   │   ├── RolePermissionSeeder.php
+│   │   └── ...
+├── routes/
+│   ├── api.php
+│   ├── web.php
+│   └── ...
+├── tests/
+│   ├── Feature/
+│   │   ├── API/
+│   │   │   ├── V1/
+│   │   │   │   ├── UserTest.php
+│   │   │   │   ├── RoleTest.php
+│   │   │   │   └── ...
+│   ├── Unit/
+│   └── ...
+├── README.md
+├── composer.json
+├── package.json
+├── phpunit.xml
+└── ...
 
-## 📚 API Documentation
+🛠️ Setup and Installation
+To get started with this system, follow these installation steps:
 
-You can import the Postman collection from:
+1. Clone the repository:
+git clone https://github.com/Abdogoda/Laravel-Interview-Tasks/RBAC
+2. Install dependencies:
+cd RBAC
+composer install
+3. Set up the .env file:
+Make sure you have the correct environment variables set in your .env file, especially the database connection.
+
+cp .env.example .env
+php artisan key:generate
+4. Migrate the database:
+Run the migration commands to set up the necessary tables for users, roles, and permissions.
+
+php artisan migrate
+5. Seed the database (optional):
+You can seed the database with default roles and permissions.
+
+php artisan db:seed
+6. Serve the application:
+php artisan serve
+🔧 Development Tools
+Laravel 11+: PHP framework for building the application.
+Laravel Sanctum: Simple token-based authentication for APIs.
+SQLite: Lightweight database used for easy setup.
+Postman: For testing API endpoints.
