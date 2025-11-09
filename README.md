@@ -35,15 +35,7 @@
 
 ---
 
-## 🛣️ API Endpoints
 
-| Method | Route | Controller Method | Description | Access |
-|--------|--------|------------------|--------------|---------|
-| **POST** | `/register` | `AuthenticationController@register` | Register a new user | Public |
-| **POST** | `/login` | `AuthenticationController@login` | Log in and generate an API token | Public |
-| **POST** | `/logout` | `AuthenticationController@logout` | Log out and invalidate the token | Authenticated (Sanctum) |
-| **GET** | `/profile` | `AuthenticationController@profile` | Get the authenticated user’s profile | Authenticated (Sanctum) |
-| **GET** | `/permissions` | `PermissionController@index` | List all permissions | Authenticated (Sanctum) |
 
 👤 مسارات المستخدمين (User Routes)
 
@@ -55,14 +47,7 @@
 | **PUT/PATCH** | `/users/{id}` | `UserController@update`  | تحديث بيانات المستخدم |
 | **DELETE**    | `/users/{id}` | `UserController@destroy` | حذف مستخدم            |
 
-### 👤 User Routes
-| Method | Route | Controller | Description |
-|--------|--------|-------------|--------------|
-| **GET** | `/users` | `UserController@index` | List all users |
-| **POST** | `/users` | `UserController@store` | Create a new user |
-| **GET** | `/users/{id}` | `UserController@show` | Show user details |
-| **PUT/PATCH** | `/users/{id}` | `UserController@update` | Update user info |
-| **DELETE** | `/users/{id}` | `UserController@destroy` | Delete a user |
+
 
 
 🧑‍💼 مسارات الأدوار (Role Routes)
@@ -78,14 +63,6 @@
 | **DELETE**    | `/roles/{id}` | `RoleController@destroy` | حذف دور            |
 
 
-### 🧑‍💼 Role Routes
-| Method | Route | Controller | Description |
-|--------|--------|-------------|--------------|
-| **GET** | `/roles` | `RoleController@index` | List all roles |
-| **POST** | `/roles` | `RoleController@store` | Create a new role |
-| **GET** | `/roles/{id}` | `RoleController@show` | Show role details |
-| **PUT/PATCH** | `/roles/{id}` | `RoleController@update` | Update role info |
-| **DELETE** | `/roles/{id}` | `RoleController@destroy` | Delete a role |
 
 
  🔒 مسارات مبنية على الأدوار (Role-Based Routes)  
@@ -96,11 +73,6 @@
 
 
 
-### 🔒 Role-Based Routes
-| Route | Description | Access |
-|--------|--------------|--------|
-| `/admin/dashboard` | Admin dashboard | Admin Only |
-| `/user/dashboard` | User dashboard | User Only |
 
 ---
 ```
