@@ -10,14 +10,6 @@ This project demonstrates how to implement a complete RBAC system in a **Laravel
 For detailed requirements and evaluation criteria, please check the file:
 > [`TaskRequirements.md`](TaskRequirements.md)
 
----
-
-## 🎥 Video Tutorial
-
-Watch the full walkthrough of this RBAC implementation on YouTube:  
-👉 [Watch the RBAC Task Video on YouTube](#)
-
----
 
 ## 🧩 Features
 
