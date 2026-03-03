@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\RoleResource;
 use App\Http\Requests\api\v1\Role\StoreRoleRequest;
 use App\Http\Requests\api\v1\Role\UpdateRoleRequest;
+use App\Http\Requests\api\v1\Role\AssinPermissionsRequest;
 
 class RoleController extends Controller
 {
@@ -23,11 +24,11 @@ class RoleController extends Controller
     public function store(StoreRoleRequest $request)
     {
         $data= $request->validated();
-        $user= Role::create(  $data);
+        $role= Role::create(  $data);
 
         return response()->json([
             "message"=>"create role succsessful",
-            "user" =>RoleResource::make($user)
+            "user" =>RoleResource::make($role)
         ]);
 
     }
@@ -35,9 +36,9 @@ class RoleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Role $user)
+    public function show(Role $role)
     {
-        return response()->json(RoleResource::make($user));
+        return response()->json(RoleResource::make($role->load('permissions')));
     }
 
     /**
@@ -65,4 +66,38 @@ class RoleController extends Controller
     'massege' => 'delet Role succsessful',
    ]);
     }
+
+    public function assignPermissions(AssinPermissionsRequest $request,Role $role){
+
+        $permissions=$request->input('permissions',[]);
+
+        $role->permissions()->Sync(  $permissions);
+
+        return response()->json([
+            "message"=>"permissions assign successfully",
+            "role"=>RoleResource::make($role->load('permissions'))
+
+        ]);
+
+    }
+
+
+    public function removePermissions(Request $request,Role $role){
+
+        $permissions=$request->input('permissions',[]);
+
+        $role->permissions()->detach(  $permissions);
+
+        return response()->json([
+            "message"=>"permissions remove successfully",
+
+        ]);
+
+    }
+
+
+
+
+
+
 }

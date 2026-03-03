@@ -27,6 +27,17 @@ use App\Http\Controllers\api\v1\AuthentcationController;
              Route::put('/users/{user}',  'update');
              Route::delete('/users/{user}',  'delete');
 
+             // Assign/Remove Permissions to user
+             Route::post('/users/{user}/Permissions',  [RoleController::class,'assignPermissions']);
+             Route::post('/users/{user}/Permissions',  [RoleController::class,'removePermissions']);
+
+             
+             // Assign/Remove role to user
+             Route::post('/users/{user}/role',  [RoleController::class,'assignPermissions']);
+             Route::post('/users/{user}/role',  [RoleController::class,'removePermissions']);
+
+
+
         });
 
 
@@ -37,6 +48,10 @@ use App\Http\Controllers\api\v1\AuthentcationController;
              Route::post('/Roles',  'store');
              Route::put('/Roles/{Role}',  'update');
              Route::delete('/Roles/{Role}',  'delete');
+
+                // Assign/Remove Permissions to role
+             Route::post('/Roles/{Role}/Permissions',  [RoleController::class,'assignPermissions']);
+             Route::post('/Roles/{Role}/Permissions',  [RoleController::class,'removePermissions']);
 
         });
     });

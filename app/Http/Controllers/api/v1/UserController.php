@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\api\v1;
-
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Http\Requests\api\v1\user\StoreUserRequest;
 use App\Http\Requests\api\v1\user\UpdateUserRequest;
+use App\Http\Requests\api\v1\Role\AssinPermissionsRequest;
 
 class UserController extends Controller
 {
@@ -75,10 +76,71 @@ class UserController extends Controller
      */
     public function destroy(Request $request, User $user)
     {
-   $user->delete();
-   return response()->json([
+        $user->delete();
+        return response()->json([
 
-    'massege' => 'delet user succsessful',
-   ]);
+            'massege' => 'delet user succsessful',
+        ]);
     }
+
+    public function assignPermissions(AssinPermissionsRequest $request, User $user){
+
+        $permissions=$request->input('permissions',[]);
+
+        $user->permissions()->Sync(  $permissions);
+
+        return response()->json([
+            "message"=>"permissions assign successfully",
+            "user"=>UserResource::make($user->load('permissions'))
+
+        ]);
+
+    }
+
+
+    public function removePermissions(AssinPermissionsRequest $request,User $user){
+
+        $permissions=$request->input('permissions',[]);
+
+        $user->permissions()->detach(  $permissions);
+
+        return response()->json([
+            "message"=>"permissions remove successfully",
+               "user"=>UserResource::make($user->load('permissions'))
+
+        ]);
+
+    }
+
+
+    
+    public function assignRoles(AssinPermissionsRequest $request, User $user){
+
+        $roles=$request->input('roles',[]);
+
+        $user->permissions()->Sync( $roles);
+
+        return response()->json([
+            "message"=>"roles assign successfully",
+            "user"=>UserResource::make($user->load('roles'))
+
+        ]);
+
+    }
+
+
+    public function removeRoles(AssinPermissionsRequest $request,User $user){
+
+        $roles=$request->input('roles',[]);
+
+        $user->permissions()->detach(  $roles);
+
+        return response()->json([
+            "message"=>"permissions remove successfully",
+               "user"=>UserResource::make($user->load('roles'))
+
+        ]);
+
+    }
+
 }
